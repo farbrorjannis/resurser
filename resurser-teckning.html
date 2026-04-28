@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resurser – Figurteckning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F2EC;
+    --surface: #FDFBF7;
+    --ink: #1C1A15;
+    --ink-mid: #5A5647;
+    --ink-light: #9A9284;
+    --accent: #C4541A;
+    --accent-light: #F5E8DF;
+    --border: rgba(28,26,21,0.12);
+    --yt-red: #B91C1C;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  header p {
+    font-size: 14px;
+    color: var(--ink-light);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 4rem 6rem;
+  }
+
+  .section { margin-bottom: 3.5rem; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--border);
+    flex: 1;
+  }
+
+  /* Link cards grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .link-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s;
+  }
+
+  .link-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(196,84,26,0.25);
+    box-shadow: 0 4px 16px rgba(28,26,21,0.08);
+  }
+
+  .link-card:hover::before { transform: scaleX(1); }
+
+  .card-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  /* YouTube list */
+  .yt-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .yt-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+
+  .yt-item:hover {
+    border-color: rgba(185,28,28,0.3);
+    transform: translateX(3px);
+  }
+
+  .yt-play {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #FEF2F2;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .yt-play svg { width: 14px; height: 14px; fill: var(--yt-red); margin-left: 2px; }
+
+  .yt-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .yt-sub { font-size: 12px; color: var(--ink-light); }
+
+  /* Books */
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+
+  .book-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-spine {
+    width: 4px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .book-author {
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+
+  .book-body {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .book-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .book-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .book-link:hover { text-decoration: underline; }
+
+  /* Shops */
+  .shops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+
+  .shop-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .shop-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .shop-addr {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .shop-link {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .shop-link:hover { text-decoration: underline; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3.5rem 0;
+  }
+
+  @media (max-width: 600px) {
+    header, main { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .card-grid { grid-template-columns: 1fr 1fr; }
+    .books-grid { grid-template-columns: 1fr; }
+    .shops-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Resurser – Figurteckning</h1>
+  <p>Verktyg, videor, böcker &amp; butiker</p>
+</header>
+
+<main>
+
+  <!-- Posereferens -->
+  <section class="section">
+    <p class="section-label">Posereferens &amp; träning</p>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.posemaniacs.com/" target="_blank">
+        <span class="card-icon">🧍</span>
+        <p class="card-name">Posemaniacs</p>
+        <p class="card-desc">3D-figurer för gestövning</p>
+      </a>
+      <a class="link-card" href="https://posespace.com/posetool/" target="_blank">
+        <span class="card-icon">📐</span>
+        <p class="card-name">Posespace</p>
+        <p class="card-desc">Posereferensverktyg</p>
+      </a>
+      <a class="link-card" href="https://justsketch.me/" target="_blank">
+        <span class="card-icon">✏️</span>
+        <p class="card-name">Just Sketch Me</p>
+        <p class="card-desc">Anpassningsbara modeller</p>
+      </a>
+      <a class="link-card" href="https://www.adorkastock.com/" target="_blank">
+        <span class="card-icon">📷</span>
+        <p class="card-name">Adorkastock</p>
+        <p class="card-desc">Fotoreferenser för tecknare</p>
+      </a>
+      <a class="link-card" href="https://se.pinterest.com/livepunkrock75/figure-drawing-reference/" target="_blank">
+        <span class="card-icon">🖼️</span>
+        <p class="card-name">Pinterest-samling</p>
+        <p class="card-desc">Figurteckningsförlagor</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Tidsövningar -->
+  <section class="section">
+    <p class="section-label">Tidsövningar</p>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.quickposes.com/" target="_blank">
+        <span class="card-icon">⏱️</span>
+        <p class="card-name">Quickposes</p>
+        <p class="card-desc">Gestövning med timer</p>
+      </a>
+      <a class="link-card" href="https://quickposes.com/en/gestures/timed" target="_blank">
+        <span class="card-icon">⚡</span>
+        <p class="card-name">Quickposes / timed</p>
+        <p class="card-desc">Direkt till tidsövningen</p>
+      </a>
+      <a class="link-card" href="https://www.line-of-action.com/" target="_blank">
+        <span class="card-icon">🖊️</span>
+        <p class="card-name">Line of Action</p>
+        <p class="card-desc">Gestövning, djur, händer</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Kurser -->
+  <section class="section">
+    <p class="section-label">Kurser &amp; utbildning</p>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.nma.art/" target="_blank">
+        <span class="card-icon">🎓</span>
+        <p class="card-name">New Masters Academy</p>
+        <p class="card-desc">Professionella teckningskurser</p>
+      </a>
+      <a class="link-card" href="https://www.thedesignsketchbook.com/" target="_blank">
+        <span class="card-icon">📓</span>
+        <p class="card-name">Design Sketchbook</p>
+        <p class="card-desc">Produktdesign &amp; skiss</p>
+      </a>
+      <a class="link-card" href="https://roblevintennis.medium.com/figure-drawing-resources-for-those-that-cant-go-to-an-atelier-78973d9ac3c4" target="_blank">
+        <span class="card-icon">📋</span>
+        <p class="card-name">Rob Levins resurslista</p>
+        <p class="card-desc">Samlad guide för figurteckning</p>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Videor -->
+  <section class="section">
+    <p class="section-label">Videor att se</p>
+    <div class="yt-list">
+      <a class="yt-item" href="https://www.youtube.com/watch?v=aOtVUHgJqQk" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Glen Vilppu tecknar – New Masters Academy</p>
+          <p class="yt-sub">Levande demonstration av Vilppus metodik</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=AOpKSlDgDVo" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Master Proportions in Figure Drawing – Glenn Vilppu</p>
+          <p class="yt-sub">Proportioner i figurteckning</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=rbN8wbRz9i8" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">A Conversation with Glenn Vilppu</p>
+          <p class="yt-sub">Intervju om process och konstsyn</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=_O3L8i6vGoY" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Learn The Aesthetics of The Figure – Karl Gnass</p>
+          <p class="yt-sub">Figurens estetik och formspråk</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=IlZAEmxqLA8" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Figure Drawing Skills – Karl Gnass Q&amp;A</p>
+          <p class="yt-sub">Frågor om den bästa processen</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=SsxBiylAMNM" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Figure Drawing Demo – Karl Gnass boksignering</p>
+          <p class="yt-sub">Live-demonstration och samtal</p>
+        </div>
+      </a>
+      <a class="yt-item" href="https://www.youtube.com/watch?v=9_Fs82gX0fA" target="_blank">
+        <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div>
+          <p class="yt-title">Stan Prokopenko – intervju</p>
+          <p class="yt-sub">Om figurteckning och lärande</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Böcker -->
+  <section class="section">
+    <p class="section-label">Böcker värda att läsa</p>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-spine"></div>
+        <p class="book-title">The Natural Way to Draw</p>
+        <p class="book-author">Kimon Nicolaïdes, 1941</p>
+        <p class="book-body">Nicolaïdes tränade inte handen först – han tränade uppmärksamheten. En klassiker som fortfarande används i konstundervisning världen över.</p>
+        <div class="book-tags">
+          <span class="tag">Konturteckning</span>
+          <span class="tag">Gestteckning</span>
+          <span class="tag">Massa &amp; tyngd</span>
+          <span class="tag">Minnesteckning</span>
+        </div>
+        <a class="book-link" href="https://oscarcerrato.wordpress.com/wp-content/uploads/2017/06/the-natural-way-to-draw.pdf" target="_blank">Läs som PDF →</a>
+      </div>
+
+      <div class="book-card">
+        <div class="book-spine"></div>
+        <p class="book-title">Figure Drawing for All It's Worth</p>
+        <p class="book-author">Andrew Loomis</p>
+        <p class="book-body">Loomis-metoden är en grundpelare i figurteckning – proportioner, konstruktion och form förklarade steg för steg. Används av proffs världen över.</p>
+        <div class="book-tags">
+          <span class="tag">Proportioner</span>
+          <span class="tag">Konstruktion</span>
+          <span class="tag">Form</span>
+        </div>
+        <a class="book-link" href="https://archive.org/details/AndrewLoomisFigureDrawingForAllItsWorth2010TitanPublishingGroup" target="_blank">Läs på Archive.org →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Butiker & atelje -->
+  <section class="section">
+    <p class="section-label">Konstnärsmaterial &amp; ateljer i Stockholm</p>
+    <div class="shops-grid">
+      <div class="shop-card">
+        <p class="shop-name">IB Wahlström</p>
+        <p class="shop-addr">Olofsgatan 10</p>
+        <a class="shop-link" href="https://www.ibwahlstrom.se" target="_blank">ibwahlstrom.se →</a>
+      </div>
+      <div class="shop-card">
+        <p class="shop-name">Kreatima</p>
+        <p class="shop-addr">Kungsgatan 58</p>
+        <a class="shop-link" href="https://kreatima.com/sv-se" target="_blank">kreatima.com →</a>
+      </div>
+      <div class="shop-card">
+        <p class="shop-name">Konstnärernas Centralinköp</p>
+        <p class="shop-addr">Fiskargatan 1</p>
+        <a class="shop-link" href="https://konstnarernas.se" target="_blank">konstnarernas.se →</a>
+      </div>
+      <div class="shop-card">
+        <p class="shop-name">Konstnärshandeln JORDI</p>
+        <p class="shop-addr">Bysistorget 8</p>
+      </div>
+      <div class="shop-card">
+        <p class="shop-name">Lediga ateljer i Stockholm</p>
+        <p class="shop-addr">Föreningsservice Stockholm</p>
+        <a class="shop-link" href="https://foreningsservice.stockholm/kulturaktorer/ateljeko-och-lediga-ateljeer/lediga-ateljeer/" target="_blank">stockholm.se →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
