@@ -508,6 +508,461 @@
       </div>
     </div>
   </section>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ytterligare Resurser – Additional Resources</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F2EC;
+    --surface: #FDFBF7;
+    --ink: #1C1A15;
+    --ink-mid: #5A5647;
+    --ink-light: #9A9284;
+    --accent: #C4541A;
+    --accent-light: #F5E8DF;
+    --border: rgba(28,26,21,0.12);
+    --yt-red: #B91C1C;
+    --pdf-blue: #1E40AF;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 2rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .intro p {
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  /* Resource cards - each link is its own standalone card for easy removal */
+  .resource-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .resource-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+    gap: 14px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+
+  .resource-card:hover {
+    border-color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  .resource-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .resource-icon.yt {
+    background: #FEF2F2;
+  }
+
+  .resource-icon.pdf {
+    background: #EFF6FF;
+  }
+
+  .resource-content {
+    min-width: 0;
+  }
+
+  .resource-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .resource-desc {
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .resource-desc-en {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 1.5rem 1rem; }
+    .resource-card {
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      padding: 12px 14px;
+    }
+    .resource-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="intro">
+    <h1>Ytterligare Resurser • Additional Resources</h1>
+    <p>Kompletterande YouTube-kanaler och gratis PDF-böcker • Complementary YouTube channels and free PDF books</p>
+  </div>
+
+  <!-- YouTube - Figure Drawing -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-title">YouTube – Figurteckning</p>
+      <p class="section-subtitle">YouTube – Figure Drawing</p>
+    </div>
+    <div class="resource-list">
+
+      <!-- Proko -->
+      <a class="resource-card" href="https://www.youtube.com/@ProkoTV" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Proko</p>
+          <p class="resource-desc">Stan Prokopenkos kanal med detaljerade genomgångar av anatomi, proportioner och figurteckning. Enormt populär.</p>
+          <p class="resource-desc-en">Stan Prokopenko's channel with detailed anatomy, proportion and figure drawing tutorials. Hugely popular.</p>
+        </div>
+      </a>
+
+      <!-- Drawing Database -->
+      <a class="resource-card" href="https://www.youtube.com/@DrawingDatabase" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Drawing Database (Marc Leone)</p>
+          <p class="resource-desc">Anatomilektioner i klassrumsstil. Mycket strukturerat och pedagogiskt.</p>
+          <p class="resource-desc-en">Anatomy lectures in classroom style. Highly structured and educational.</p>
+        </div>
+      </a>
+
+      <!-- Sycra -->
+      <a class="resource-card" href="https://www.youtube.com/@Sycra" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Sycra (Sycra Yasin)</p>
+          <p class="resource-desc">Gestteckning och generella teckningsprinciper. Inte lika polerat som andra men genuint användbart.</p>
+          <p class="resource-desc-en">Gesture drawing and general drawing principles. Less polished than others but genuinely useful.</p>
+        </div>
+      </a>
+
+      <!-- FZD School -->
+      <a class="resource-card" href="https://www.youtube.com/@FZDSCHOOL" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">FZD School of Design (Feng Zhu)</p>
+          <p class="resource-desc">Concept art och industriperspektiv. Utmärkt för komposition och designtänkande.</p>
+          <p class="resource-desc-en">Concept art and industry perspective. Excellent for composition and design thinking.</p>
+        </div>
+      </a>
+
+      <!-- Love Life Drawing -->
+      <a class="resource-card" href="https://www.youtube.com/@LoveLifeDrawing" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Love Life Drawing</p>
+          <p class="resource-desc">Fokuserar specifikt på gestteckning och figur. Enkelt och pedagogiskt.</p>
+          <p class="resource-desc-en">Focuses specifically on gesture drawing and figure. Simple and educational.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- YouTube - Watercolor -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-title">YouTube – Akvarell</p>
+      <p class="section-subtitle">YouTube – Watercolor</p>
+    </div>
+    <div class="resource-list">
+
+      <!-- Mind of Watercolor -->
+      <a class="resource-card" href="https://www.youtube.com/@mindofwatercolor" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Mind of Watercolor (Steve Mitchell)</p>
+          <p class="resource-desc">30+ års erfarenhet med humoristisk stil. Extremt välrekommenderad för alla nivåer.</p>
+          <p class="resource-desc-en">30+ years experience with humorous style. Highly recommended for all levels.</p>
+        </div>
+      </a>
+
+      <!-- Makoccino -->
+      <a class="resource-card" href="https://www.youtube.com/@makoccino" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Makoccino</p>
+          <p class="resource-desc">Populär för nybörjare och mellannivå. Tydlig och uppmuntrande undervisning.</p>
+          <p class="resource-desc-en">Popular for beginners and intermediate. Clear and encouraging teaching.</p>
+        </div>
+      </a>
+
+      <!-- James Gurney -->
+      <a class="resource-card" href="https://www.youtube.com/@JamesGurney" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">James Gurney</p>
+          <p class="resource-desc">Konstnären bakom Dinotopia. Fokus på färg, ljus och komposition. Mer avancerat.</p>
+          <p class="resource-desc-en">The artist behind Dinotopia. Focus on color, light and composition. More advanced.</p>
+        </div>
+      </a>
+
+      <!-- Marco Bucci -->
+      <a class="resource-card" href="https://www.youtube.com/@marcobucci" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Marco Bucci</p>
+          <p class="resource-desc">Pedagogisk och strukturerad. Bra för den som vill förstå varför saker fungerar.</p>
+          <p class="resource-desc-en">Educational and structured. Great for understanding why things work.</p>
+        </div>
+      </a>
+
+      <!-- HulloAlice -->
+      <a class="resource-card" href="https://www.youtube.com/@HulloAlice" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">HulloAlice</p>
+          <p class="resource-desc">Nybörjarvänlig med varierat format: utmaningar, vlogs och tutorials.</p>
+          <p class="resource-desc-en">Beginner-friendly with varied format: challenges, vlogs and tutorials.</p>
+        </div>
+      </a>
+
+      <!-- Liron Yanconsky -->
+      <a class="resource-card" href="https://www.youtube.com/@LironYan" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Liron Yanconsky</p>
+          <p class="resource-desc">Dokumenterar sin egen inlärningsresa. Inspirerande för den som också håller på att lära sig.</p>
+          <p class="resource-desc-en">Documents his own learning journey. Inspiring for those also learning.</p>
+        </div>
+      </a>
+
+      <!-- Sketchbook Skool -->
+      <a class="resource-card" href="https://www.youtube.com/@sketchbookskool" target="_blank">
+        <div class="resource-icon yt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#B91C1C"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Sketchbook Skool (Danny Gregory)</p>
+          <p class="resource-desc">Urban sketching, akvarell och illustrerat dagboksskrivande. Mer kreativt än tekniskt fokus.</p>
+          <p class="resource-desc-en">Urban sketching, watercolor and illustrated journaling. More creative than technical focus.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Free PDF Books -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-title">Gratis PDF-böcker</p>
+      <p class="section-subtitle">Free PDF Books</p>
+    </div>
+    <div class="resource-list">
+
+      <!-- Michael Hampton -->
+      <a class="resource-card" href="https://archive.org/details/michael-hampton-figure-drawing-design-an" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Michael Hampton – Figure Drawing: Design and Invention</p>
+          <p class="resource-desc">Mycket uppskattad modern bok om figurteckning, anatomi och konstruktion.</p>
+          <p class="resource-desc-en">Highly appreciated modern book on figure drawing, anatomy and construction.</p>
+        </div>
+      </a>
+
+      <!-- George Bridgman - Constructive Anatomy -->
+      <a class="resource-card" href="https://archive.org/details/constructiveanat00brid" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">George Bridgman – Constructive Anatomy</p>
+          <p class="resource-desc">Klassiker från tidigt 1900-tal. Bridgman är Loomis jämbördig föregångare.</p>
+          <p class="resource-desc-en">Classic from early 1900s. Bridgman is Loomis' worthy predecessor.</p>
+        </div>
+      </a>
+
+      <!-- George Bridgman - Complete Guide -->
+      <a class="resource-card" href="https://archive.org/details/completeguidetod00brid" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">George Bridgman – Complete Guide to Drawing from Life</p>
+          <p class="resource-desc">Komplett guide till att teckna från levande modell. Klassisk metodik.</p>
+          <p class="resource-desc-en">Complete guide to drawing from life. Classical methodology.</p>
+        </div>
+      </a>
+
+      <!-- Burne Hogarth -->
+      <a class="resource-card" href="https://archive.org/details/BurneHogarthDynamicAnatomy" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Burne Hogarth – Dynamic Anatomy</p>
+          <p class="resource-desc">Dramatisk och expressiv anatomi. Populär bland animatörer och serietecknare.</p>
+          <p class="resource-desc-en">Dramatic and expressive anatomy. Popular among animators and comic artists.</p>
+        </div>
+      </a>
+
+      <!-- Valerie Winslow -->
+      <a class="resource-card" href="https://archive.org/details/classic-human-anatomy-in-motion-the-artist-s-guide-to-the-dynamics-of-figure-drawing" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Valerie L. Winslow – Classic Human Anatomy in Motion</p>
+          <p class="resource-desc">Modern, detaljerad och illustrerad guide till kroppen i rörelse.</p>
+          <p class="resource-desc-en">Modern, detailed and illustrated guide to the body in motion.</p>
+        </div>
+      </a>
+
+      <!-- Steve Huston -->
+      <a class="resource-card" href="https://archive.org/details/steve-huston-figure-drawing-for-artists" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Steve Huston – Figure Drawing for Artists: Making Every Mark Count</p>
+          <p class="resource-desc">Fokus på vad som verkligen spelar roll i varje streck. Precision och intention.</p>
+          <p class="resource-desc-en">Focus on what really matters in every mark. Precision and intention.</p>
+        </div>
+      </a>
+
+      <!-- Glenn Vilppu -->
+      <a class="resource-card" href="https://archive.org/details/gottfriedbammesdernacktemensch_201911" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">Glenn Vilppu – The Vilppu Drawing Manual</p>
+          <p class="resource-desc">Vilppus egna anteckningar som PDF. Direkt kopplat till hans videor. (Ingår i arkiv med flera böcker.)</p>
+          <p class="resource-desc-en">Vilppu's own notes as PDF. Directly connected to his videos. (Part of archive with multiple books.)</p>
+        </div>
+      </a>
+
+      <!-- Vintage Inkwell -->
+      <a class="resource-card" href="https://vintageinkwell.com/library/" target="_blank">
+        <div class="resource-icon pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1E40AF"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8"/></svg>
+        </div>
+        <div class="resource-content">
+          <p class="resource-name">The Vintage Inkwell Academy – Library</p>
+          <p class="resource-desc">Samlingssite med över 100 gratis vintage-böcker om figurteckning, anatomi och illustration som PDF.</p>
+          <p class="resource-desc-en">Collection site with over 100 free vintage books on figure drawing, anatomy and illustration as PDFs.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
 
 </main>
 
